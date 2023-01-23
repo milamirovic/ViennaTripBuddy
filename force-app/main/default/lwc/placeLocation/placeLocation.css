@@ -1,0 +1,16 @@
+.mainContainer {
+    display: flex;
+    flex-direction: column;
+}
+
+.carousel {
+    align-self: center;
+}
+
+.richtext {
+    background-color: #7698f0
+    ;
+    padding: 20px;
+    border-radius: 5px;
+    margin-bottom: 10px;
+}

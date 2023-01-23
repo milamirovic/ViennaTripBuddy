@@ -1,0 +1,55 @@
+<template>
+	<lightning-card title={place.Name} class="place-tile">
+        <div slot="actions">
+            <lightning-button-icon
+                icon-name="utility:search"
+                icon-class="place-tile-button"
+                variant="bare"
+                alternative-text="Open record"
+                onclick={handleOpenRecordClick}>
+            </lightning-button-icon>
+        </div>
+		<div class="slds-var-p-horizontal_small">
+			<div class="slds-media">
+				<div class="slds-media__figure">
+					<template if:true={isCafe}>
+						<img src={appResources.cafe} alt="Place profile" class="place-silhouette"/>
+					</template>
+					<template if:true={isRestaurant}>
+						<img src={appResources.restaurant} alt="Place profile" class="place-silhouette"/>
+					</template>
+					<template if:true={isMuseum}>
+						<img src={appResources.museum} alt="Place profile" class="place-silhouette"/>
+					</template>
+					<template if:true={isLunaPark}>
+						<img src={appResources.lunaPark} alt="Place profile" class="place-silhouette"/>
+					</template>
+					<template if:true={isPark}>
+						<img src={appResources.park} alt="Place profile" class="place-silhouette"/>
+					</template>
+					<template if:true={isStreet}>
+						<img src={appResources.street} alt="Place profile" class="place-silhouette"/>
+					</template>
+					<template if:true={isStatue}>
+						<img src={appResources.statue} alt="Place profile" class="place-silhouette"/>
+					</template>
+					<template if:true={isChurch}>
+						<img src={appResources.church} alt="Place profile" class="place-silhouette"/>
+					</template>
+					<template if:true={isFortress}>
+						<img src={appResources.fortress} alt="Place profile" class="place-silhouette"/>
+					</template>
+					<template if:true={isShoppingCenter}>
+						<img src={appResources.shoppingMall} alt="Place profile" class="place-silhouette"/>
+					</template>
+					<template if:true={isZoo}>
+						<img src={appResources.zoo} alt="Place profile" class="place-silhouette"/>
+					</template>
+				</div>
+				<!-- <div class="slds-media__body">
+					<p class="slds-var-m-bottom_xx-small">{place.TicketPrice__c} e</p>
+				</div> -->
+			</div>
+		</div>
+	</lightning-card>
+</template>

@@ -1,0 +1,71 @@
+<template>
+    <div class="mainContainer">
+        <lightning-card  title="Ticket prices" icon-name="utility:currency" style="margin-bottom: 10px;">
+            <div class="prices" style="margin-bottom: 10px;">
+                <div class="slds-p-around_medium lgc-bg">
+                    <lightning-tile>
+                        <dl class="slds-dl_horizontal">
+                            <dt class="slds-dl_horizontal__label">
+                                <p class="slds-truncate" title="Adult">Adults:</p>
+                            </dt>
+                            <dd class="slds-dl_horizontal__detail slds-tile__meta">
+                                <p class="slds-truncate" title="Cena">{ticketPrice} €</p>
+                            </dd>
+                            <dt class="slds-dl_horizontal__label">
+                                <p class="slds-truncate" title="Child">Child (0-16):</p>
+                            </dt>
+                            <dd class="slds-dl_horizontal__detail slds-tile__meta">
+                                <p class="slds-truncate" title="Cena">{childPrice} €</p>
+                            </dd>
+                            <dt class="slds-dl_horizontal__label">
+                                <p class="slds-truncate" title="Student">Student:</p>
+                            </dt>
+                            <dd class="slds-dl_horizontal__detail slds-tile__meta">
+                                <p class="slds-truncate" title="Cena">{studentPrice} €</p>
+                            </dd>
+                            <dt class="slds-dl_horizontal__label">
+                                <p class="slds-truncate" title="Senior">Senior (65+):</p>
+                            </dt>
+                            <dd class="slds-dl_horizontal__detail slds-tile__meta">
+                                <p class="slds-truncate" title="Cena">{elderlyPrice} €</p>
+                            </dd>
+                        </dl>
+                    </lightning-tile>
+                </div>
+            </div>
+        </lightning-card>
+        <lightning-card  title="Ticket reservation" icon-name="utility:coupon_codes">
+            <div class="slds-p-around_medium lgc-bg">
+                <lightning-tile style="margin-bottom: 10px;">
+                    <lightning-input type="number" label="Adult" step="1" value={adultsNum} min="0" max="20" onchange={adultsChanged}></lightning-input>
+                    <lightning-input type="number" label="Child" step="1" value={childrenNum} min="0" max="20" onchange={childrenChanged}></lightning-input>
+                    <lightning-input type="number" label="Student" step="1" value={studentsNum} min="0" max="20" onchange={studentsChanged}></lightning-input>
+                    <lightning-input type="number" label="Senior" step="1" value={elderlyNum} min="0" max="20" onchange={elderlyChanged} style="margin-bottom: 10px;"></lightning-input>
+                    <lightning-input type="date" name="date" label="Choose a date to visit:" value={visitDate} min={today} max="2030-09-22" onchange={dateChanged}></lightning-input>
+                </lightning-tile>
+                <template if:true={totalVisible}>
+                    <p style="margin-top: 10px; font-weight: bold;">Number of tickets: {sum}</p>
+                    <p style="margin-bottom: 10px; font-weight: bold;">Total price: {totalPrice} eur</p>
+                    <p style="display: flex; flex-direction: row; justify-content: flex-end;">
+                        <lightning-button 
+                            variant="success" 
+                            label="Make a reservation" 
+                            title="Make a reservation" 
+                            onclick={handleReservationClick} 
+                            class="slds-m-left_x-small">
+                        </lightning-button>
+                    </p>
+                </template>
+            </div>
+        </lightning-card>
+        <iframe  
+            src={video} 
+            title="YouTube video player" frameborder="0" 
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" 
+            allowfullscreen
+            class="iframe"
+            >
+        </iframe> 
+    </div>
+
+</template>

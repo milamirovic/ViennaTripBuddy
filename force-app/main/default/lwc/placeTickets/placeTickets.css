@@ -1,0 +1,9 @@
+.mainContainer {
+    display: flex;
+    flex-direction: column;
+}
+
+.iframe {
+    margin-top: 20px;
+    align-self: center;
+}

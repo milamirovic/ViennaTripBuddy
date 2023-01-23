@@ -1,0 +1,24 @@
+<template>
+  <div class="mainContainer">
+    <div class="slds-size_3-of-4 carousel">
+      <div class="slds-box slds-box_x-small slds-text-align_center slds-m-around_x-small">
+        <lightning-carousel>
+          <template for:each={images} for:item="image">
+            <lightning-carousel-image
+              key={image}
+              src={image}
+              header={name}>
+            </lightning-carousel-image>
+          </template>
+        </lightning-carousel>
+      </div>
+    </div>
+    <lightning-formatted-rich-text
+        value={richtext}
+        class="richtext"
+    ></lightning-formatted-rich-text>
+    <lightning-card title={cardTitle} icon-name="standard:address">
+      <lightning-map map-markers={mapMarkers} zoom-level="12"></lightning-map>
+    </lightning-card>
+  </div>
+</template>

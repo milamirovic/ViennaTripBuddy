@@ -1,0 +1,46 @@
+<template>
+  <lightning-card title="Places" icon-name="utility:trailhead">
+    <div class="slds-card__body slds-card__body_inner">
+      <!-- Start place list -->
+      <template if:true={places.data}>
+        <lightning-input
+          type="search"
+          onchange={handleSearchTermChange}
+          variant="label-hidden"
+          class="slds-var-m-bottom_small"
+          label="Search"
+          placeholder="Search for places"
+          value={searchTerm}
+        >
+        </lightning-input>
+        <lightning-layout multiple-rows="true" pull-to-boundary="small">
+          <template for:each={places.data} for:item="place">
+            <lightning-layout-item
+              key={place.Id}
+              size="3"
+              class="slds-var-p-around_x-small"
+            >
+              <c-place-tile
+                place={place}
+                onplaceview={handlePlaceView}
+              ></c-place-tile>
+            </lightning-layout-item>
+          </template>
+        </lightning-layout>
+        <!-- No places found -->
+        <template if:false={hasResults}>
+          <div class="slds-align_absolute-center slds-var-m-vertical_small">
+            This is placey disturbing, we did not find results...
+          </div>
+        </template>
+      </template>
+      <!-- End place list -->
+      <!-- Data failed to load -->
+      <template if:true={places.error}>
+        <div class="slds-text-color_error">
+          An error occurred while loading the place list
+        </div>
+      </template>
+    </div>
+  </lightning-card>
+</template>
